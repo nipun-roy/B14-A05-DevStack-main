@@ -5,10 +5,8 @@ const Hero = () => {
     <section className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-16 pt-10 pb-16 lg:pt-16 lg:pb-24">
       <div className="flex flex-col-reverse lg:flex-row items-center justify-between gap-12 lg:gap-16">
         
-        {/* বাম পাশের লেখা এবং বাটন */}
+        {/* left text content */}
         <div className="w-full lg:w-1/2 text-center lg:text-left">
-          
-          {/* হেডিং (Two-tone: Plain text + Gradient text) */}
           <h1 className="text-4xl sm:text-5xl lg:text-[56px] font-extrabold text-[#0f172a] leading-tight tracking-tight">
             Build Your Ideal <br />
             <span className="text-brand-gradient">
@@ -16,14 +14,12 @@ const Hero = () => {
             </span>
           </h1>
 
-          {/* প্যারাগ্রাফ */}
           <p className="mt-6 text-gray-500 text-base sm:text-lg leading-relaxed max-w-lg mx-auto lg:mx-0">
             Explore frontend, backend, database, and tooling options,
             compare them side by side, and put together the stack that fits your
             next project.
           </p>
 
-          {/* বাটনসমূহ */}
           <div className="mt-8 flex flex-wrap items-center justify-center lg:justify-start gap-4 text-sm font-medium">
             <a
               href="#technologies"
@@ -35,10 +31,9 @@ const Hero = () => {
               Learn More
             </button>
           </div>
-
         </div>
 
-        {/* ডান পাশের ৩ডি ব্যানার ইমেজ */}
+        {/* right side graphic */}
         <div className="w-full lg:w-1/2 flex justify-center lg:justify-end">
           <img
             src={bannerImg}

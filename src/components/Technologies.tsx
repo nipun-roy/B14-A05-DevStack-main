@@ -13,55 +13,51 @@ export interface Technology {
 }
 
 const Technologies = () => {
-  const [technologies, setTechnologies] = useState<Technology[]>([]);
-  const [loading, setLoading] = useState<boolean>(true);
-  const [selectedStack, setSelectedStack] = useState<Technology[]>([]);
+  const [techList, setTechList] = useState<Technology[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [myStack, setMyStack] = useState<Technology[]>([]);
 
-  // Data fetch from JSON File (useEffect)
+  // load data from json
   useEffect(() => {
-    setLoading(true);
     fetch("/technologies.json")
-      .then((res) => {
-        if (!res.ok) throw new Error("Failed to load technologies");
-        return res.json();
-      })
-      .then((data: Technology[]) => {
-        setTechnologies(data);
+      .then((res) => res.json())
+      .then((data) => {
+        setTechList(data);
         setLoading(false);
       })
-      .catch((error) => {
-        console.error("Error fetching technologies:", error);
+      .catch((err) => {
+        console.log(err);
         setLoading(false);
-        toast.error("Failed to load technologies data.");
+        toast.error("Could not load data");
       });
   }, []);
 
-  // (Add to Stack)
-  const handleAddToStack = (tech: Technology) => {
-    const isAlreadyAdded = selectedStack.some((item) => item.id === tech.id);
-    if (isAlreadyAdded) {
-      toast.warning(`${tech.name} is already in your stack!`);
+  // add to my stack
+  const addToStack = (item: Technology) => {
+    const exists = myStack.some((tech) => tech.id === item.id);
+    if (exists) {
+      toast.warn(`${item.name} is already added!`);
       return;
     }
-    setSelectedStack([...selectedStack, tech]);
-    toast.success(`${tech.name} added to your stack!`);
+    setMyStack([...myStack, item]);
+    toast.success(`${item.name} added to stack!`);
   };
 
-  // Technology remove
-  const handleRemoveFromStack = (tech: Technology) => {
-    setSelectedStack(selectedStack.filter((item) => item.id !== tech.id));
-    toast.info(`${tech.name} removed from your stack.`);
+  // remove single item
+  const removeFromStack = (id: string, name: string) => {
+    const updated = myStack.filter((tech) => tech.id !== id);
+    setMyStack(updated);
+    toast.info(`${name} removed`);
   };
 
-  // (Remove All)
-  const handleRemoveAll = () => {
-    if (selectedStack.length === 0) return;
-    setSelectedStack([]);
-    toast.info("All technologies removed from your stack.");
+  // clear entire stack
+  const clearAll = () => {
+    if (myStack.length === 0) return;
+    setMyStack([]);
+    toast.info("All items removed");
   };
 
-  //  Badge background and text color
-  const getBadgeColor = (badge: string) => {
+  const getBadgeStyle = (badge: string) => {
     switch (badge) {
       case "Popular":
         return "bg-sky-50 text-sky-600 border border-sky-100";
@@ -94,7 +90,6 @@ const Technologies = () => {
 
   return (
     <section id="technologies" className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-16 py-12">
-      {/* Section header */}
       <div className="mb-10 text-center lg:text-left">
         <h2 className="text-3xl sm:text-4xl font-extrabold text-[#0f172a] tracking-tight">
           Explore the <span className="text-pink-600">Technologies</span>
@@ -104,20 +99,17 @@ const Technologies = () => {
         </p>
       </div>
 
-      {/*  (Loading State) */}
       {loading ? (
-        <div className="flex flex-col items-center justify-center py-20 gap-4">
-          <div className="w-12 h-12 border-4 border-pink-200 border-t-pink-600 rounded-full animate-spin"></div>
-          <p className="text-gray-500 font-medium text-sm">Loading technologies...</p>
+        <div className="flex flex-col items-center justify-center py-20 gap-3">
+          <div className="w-10 h-10 border-4 border-pink-200 border-t-pink-600 rounded-full animate-spin"></div>
+          <p className="text-gray-500 text-sm">Loading technologies...</p>
         </div>
       ) : (
-        /* Main content: Left side card grid and right side your stack side bar*/
         <div className="flex flex-col lg:flex-row items-start gap-8">
-          
-          {/* Card Grid: Mobile 1 column, Tablet 2 column, Desktop 3 column */}
+          {/* Card Grid */}
           <div className="w-full lg:flex-1 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
-            {technologies.map((tech) => {
-              const isAdded = selectedStack.some((item) => item.id === tech.id);
+            {techList.map((tech) => {
+              const isAdded = myStack.some((item) => item.id === tech.id);
 
               return (
                 <div
@@ -125,35 +117,30 @@ const Technologies = () => {
                   className="border border-gray-100 rounded-2xl p-6 bg-white shadow-xs hover:shadow-md transition flex flex-col justify-between"
                 >
                   <div>
-                    {/* icon ও badge */}
                     <div className="flex items-center justify-between">
                       <div className="w-10 h-10 flex items-center justify-center p-1 bg-slate-50 rounded-lg">
                         <img
                           src={tech.icon}
                           alt={tech.name}
                           className="w-8 h-8 object-contain"
-                          loading="lazy"
                           onError={(e) => {
                             (e.target as HTMLElement).style.display = "none";
                           }}
                         />
                       </div>
-                      <span className={`text-xs font-semibold px-3 py-1 rounded-full ${getBadgeColor(tech.badge)}`}>
+                      <span className={`text-xs font-semibold px-3 py-1 rounded-full ${getBadgeStyle(tech.badge)}`}>
                         {tech.badge}
                       </span>
                     </div>
 
-                    {/* Name */}
                     <h3 className="text-xl font-bold text-slate-900 mt-4">
                       {tech.name}
                     </h3>
 
-                    {/* Description */}
                     <p className="text-xs text-gray-500 mt-2 leading-relaxed min-h-[48px]">
                       {tech.description}
                     </p>
 
-                    {/* Category , Defficulty এবং Rating */}
                     <div className="flex items-center justify-between gap-2 mt-4 text-xs font-medium text-gray-500">
                       <div className="flex items-center gap-2">
                         <span className="bg-gray-100 text-gray-700 px-2 py-0.5 rounded-md whitespace-nowrap">
@@ -167,9 +154,8 @@ const Technologies = () => {
                     </div>
                   </div>
 
-                  {/* Add to Stack  */}
                   <button
-                    onClick={() => handleAddToStack(tech)}
+                    onClick={() => addToStack(tech)}
                     disabled={isAdded}
                     className={`w-full py-2.5 rounded-lg text-sm font-semibold mt-6 transition cursor-pointer ${
                       isAdded
@@ -184,28 +170,26 @@ const Technologies = () => {
             })}
           </div>
 
-          {/* Your Stack Side bar */}
+          {/* Your Stack Sidebar */}
           <div className="w-full lg:w-80 shrink-0 border border-gray-100 rounded-2xl p-6 bg-white shadow-xs sticky top-24">
             <h3 className="text-lg font-bold text-slate-900">Your Stack</h3>
             <p className="text-xs text-gray-400 mt-1">
-              {selectedStack.length} Technology Selected
+              {myStack.length} Technology Selected
             </p>
 
-            {/* selected technoloy list or emty list */}
             <div className="mt-5 flex flex-col gap-3 min-h-[160px]">
-              {selectedStack.length === 0 ? (
-                /* Empty State Message */
+              {myStack.length === 0 ? (
                 <div className="flex flex-col items-center justify-center py-10 text-center px-4">
                   <div className="w-12 h-12 rounded-full bg-slate-100 text-slate-400 flex items-center justify-center text-xl mb-3">
                     🧰
                   </div>
                   <p className="text-sm font-medium text-slate-700">Your stack is empty</p>
                   <p className="text-xs text-gray-400 mt-1">
-                    Click "Add to Stack" on any technology card to start building.
+                    Click "Add to Stack" on any card to add it here.
                   </p>
                 </div>
               ) : (
-                selectedStack.map((item) => (
+                myStack.map((item) => (
                   <div
                     key={item.id}
                     className="border border-gray-100 rounded-xl p-3 flex items-center justify-between bg-white shadow-xs"
@@ -220,11 +204,10 @@ const Technologies = () => {
                       </div>
                     </div>
 
-                    {/* Remove button */}
                     <button
-                      onClick={() => handleRemoveFromStack(item)}
+                      onClick={() => removeFromStack(item.id, item.name)}
                       className="text-gray-400 hover:text-red-500 hover:bg-red-50 text-sm font-bold p-1 rounded-md transition cursor-pointer"
-                      title={`Remove ${item.name}`}
+                      title="Remove"
                     >
                       ✕
                     </button>
@@ -233,18 +216,16 @@ const Technologies = () => {
               )}
             </div>
 
-            {/* Remove All Button*/}
             <button
-              onClick={handleRemoveAll}
-              disabled={selectedStack.length === 0}
+              onClick={clearAll}
+              disabled={myStack.length === 0}
               className={`w-full border border-red-200 text-red-500 hover:bg-red-50 font-semibold py-2 rounded-lg text-sm transition mt-6 cursor-pointer ${
-                selectedStack.length === 0 ? "opacity-40 cursor-not-allowed" : ""
+                myStack.length === 0 ? "opacity-40 cursor-not-allowed" : ""
               }`}
             >
               Remove All
             </button>
           </div>
-
         </div>
       )}
     </section>

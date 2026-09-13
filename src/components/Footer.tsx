@@ -5,10 +5,10 @@ const Footer = () => {
     <footer className="w-full bg-white mt-12">
       <div className="max-w-7xl mx-auto px-16 pt-6 pb-12">
         
-        {/*  (Top Section) */}
+        {/* top content */}
         <div className="flex justify-between items-start gap-12">
           
-          {/* Left side: Logo, description and social link*/}
+          {/* brand info */}
           <div className="max-w-xs">
             <a href="#">
               <img src={logo} alt="DevStack Logo" className="h-7 w-auto object-contain" />
@@ -23,10 +23,10 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* Right Side: 3 column equal space disribution */}
+          {/* links columns */}
           <div className="w-1/2 flex justify-between">
             
-            {/*  PRODUCT */}
+            {/* product */}
             <div>
               <h4 className="text-xs font-bold text-slate-900 tracking-wider uppercase mb-4">
                 Product
@@ -38,7 +38,7 @@ const Footer = () => {
               </ul>
             </div>
 
-            {/*  COMPANY */}
+            {/* company */}
             <div>
               <h4 className="text-xs font-bold text-slate-900 tracking-wider uppercase mb-4">
                 Company
@@ -50,7 +50,7 @@ const Footer = () => {
               </ul>
             </div>
 
-            {/* LEGAL content  Right side align   */}
+            {/* legal */}
             <div>
               <h4 className="text-xs font-bold text-slate-900 tracking-wider uppercase mb-4">
                 Legal
@@ -65,10 +65,10 @@ const Footer = () => {
 
         </div>
 
-        {/* (Divider) */}
+        {/* divider */}
         <div className="border-t border-gray-100 mt-10 mb-6"></div>
 
-        {/* (Bottom Section) */}
+        {/* copyright */}
         <div className="flex justify-between items-center text-xs text-gray-400">
           <p>© 2026 Dev Stack. All rights reserved.</p>
           <div className="flex items-center gap-6">

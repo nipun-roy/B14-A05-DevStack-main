@@ -4,7 +4,7 @@
     "name": "React",
     "category": "Frontend",
     "description": "A declarative, component-based JavaScript library for building modern user interfaces.",
-    "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
+    "icon": "/icons/react.svg",
     "rating": 4.9,
     "difficulty": "Beginner-Friendly",
     "badge": "Popular"
@@ -14,7 +14,7 @@
     "name": "Vue.js",
     "category": "Frontend",
     "description": "An approachable, performant, and versatile framework for building web user interfaces.",
-    "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vuejs/vuejs-original.svg",
+    "icon": "/icons/vue.svg",
     "rating": 4.8,
     "difficulty": "Beginner-Friendly",
     "badge": "Versatile"
@@ -24,7 +24,7 @@
     "name": "Svelte",
     "category": "Frontend",
     "description": "Cybernetically enhanced web apps with compile-time reactivity and zero virtual DOM overhead.",
-    "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/svelte/svelte-original.svg",
+    "icon": "/icons/svelte.svg",
     "rating": 4.8,
     "difficulty": "Intermediate",
     "badge": "Fast"
@@ -34,7 +34,7 @@
     "name": "Next.js",
     "category": "Frontend",
     "description": "The React framework for full-stack web applications with hybrid static & server rendering.",
-    "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg",
+    "icon": "/icons/nextjs.svg",
     "rating": 4.9,
     "difficulty": "Intermediate",
     "badge": "SSR / Edge"
@@ -44,7 +44,7 @@
     "name": "Node.js",
     "category": "Backend",
     "description": "An asynchronous event-driven JavaScript runtime built on Chrome's V8 engine.",
-    "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg",
+    "icon": "/icons/nodejs.svg",
     "rating": 4.8,
     "difficulty": "Intermediate",
     "badge": "Standard"
@@ -54,7 +54,7 @@
     "name": "PostgreSQL",
     "category": "Database",
     "description": "A powerful, open-source object-relational database system with proven reliability.",
-    "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg",
+    "icon": "/icons/postgresql.svg",
     "rating": 4.9,
     "difficulty": "Intermediate",
     "badge": "Top SQL"
@@ -64,7 +64,7 @@
     "name": "Redis",
     "category": "Database",
     "description": "In-memory data structure store used as a high-speed database, cache, and message broker.",
-    "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redis/redis-original.svg",
+    "icon": "/icons/redis.svg",
     "rating": 4.8,
     "difficulty": "Intermediate",
     "badge": "Cache"
@@ -74,7 +74,7 @@
     "name": "JavaScript",
     "category": "Language",
     "description": "The versatile, ubiquitous scripting language powering dynamic behavior across the web.",
-    "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg",
+    "icon": "/icons/javascript.svg",
     "rating": 4.9,
     "difficulty": "Beginner-Friendly",
     "badge": "Ubiquitous"
@@ -84,7 +84,7 @@
     "name": "TypeScript",
     "category": "Language",
     "description": "A strongly typed programming language that builds on JavaScript for robust tooling.",
-    "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg",
+    "icon": "/icons/typescript.svg",
     "rating": 4.9,
     "difficulty": "Intermediate",
     "badge": "Essential"
@@ -94,7 +94,7 @@
     "name": "Java",
     "category": "Language",
     "description": "A secure, object-oriented programming language designed for portability and scale.",
-    "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg",
+    "icon": "/icons/java.svg",
     "rating": 4.6,
     "difficulty": "Intermediate",
     "badge": "Robust"
@@ -104,7 +104,7 @@
     "name": "Tailwind CSS",
     "category": "Styling",
     "description": "A utility-first CSS framework packed with classes that can be composed to build custom UI.",
-    "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg",
+    "icon": "/icons/tailwind.svg",
     "rating": 4.9,
     "difficulty": "Beginner-Friendly",
     "badge": "Modern"
@@ -114,7 +114,7 @@
     "name": "Docker",
     "category": "DevOps",
     "description": "A platform designed to build, share, and run containerized applications reliably.",
-    "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg",
+    "icon": "/icons/docker.svg",
     "rating": 4.9,
     "difficulty": "Intermediate",
     "badge": "Containers"
@@ -124,7 +124,7 @@
     "name": "MongoDB",
     "category": "Database",
     "description": "A source-available, cross-platform document-oriented database classified as a NoSQL database.",
-    "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg",
+    "icon": "/icons/mongodb.svg",
     "rating": 4.7,
     "difficulty": "Beginner-Friendly",
     "badge": "NoSQL"
@@ -134,7 +134,7 @@
     "name": "GraphQL",
     "category": "Tools",
     "description": "An open-source data query and manipulation language for APIs and a runtime for fulfilling queries.",
-    "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/graphql/graphql-plain.svg",
+    "icon": "/icons/graphql.svg",
     "rating": 4.8,
     "difficulty": "Intermediate",
     "badge": "API Query"
@@ -144,10 +144,9 @@
     "name": "Python",
     "category": "Language",
     "description": "An interpreted, high-level, general-purpose programming language emphasizing code readability.",
-    "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg",
+    "icon": "/icons/python.svg",
     "rating": 4.9,
     "difficulty": "Beginner-Friendly",
     "badge": "Versatile"
   }
 ]
-
