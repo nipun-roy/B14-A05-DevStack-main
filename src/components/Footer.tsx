@@ -3,17 +3,17 @@ import logo from "../assets/logo-text.png";
 const Footer = () => {
   return (
     <footer className="w-full bg-white mt-12">
-      <div className="max-w-7xl mx-auto px-16 pt-6 pb-12">
+      <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-16 pt-6 pb-12">
         
-        {/* top content */}
-        <div className="flex justify-between items-start gap-12">
+        {/* top content: mobile flex-col, desktop flex-row */}
+        <div className="flex flex-col lg:flex-row justify-between items-start gap-10 lg:gap-12">
           
           {/* brand info */}
-          <div className="max-w-xs">
+          <div className="w-full lg:max-w-xs">
             <a href="#">
               <img src={logo} alt="DevStack Logo" className="h-7 w-auto object-contain" />
             </a>
-            <p className="text-xs text-gray-400 mt-3 leading-relaxed">
+            <p className="text-xs text-gray-400 mt-3 leading-relaxed max-w-sm">
               Curated tools, technologies, and resources for developers building modern software.
             </p>
             <div className="flex items-center gap-5 mt-5 text-xs font-medium text-slate-700">
@@ -23,8 +23,8 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* links columns */}
-          <div className="w-1/2 flex justify-between">
+          {/* links columns: grid with 3 columns and clean spacing */}
+          <div className="w-full lg:w-1/2 grid grid-cols-3 gap-6 sm:gap-8">
             
             {/* product */}
             <div>
@@ -68,8 +68,8 @@ const Footer = () => {
         {/* divider */}
         <div className="border-t border-gray-100 mt-10 mb-6"></div>
 
-        {/* copyright */}
-        <div className="flex justify-between items-center text-xs text-gray-400">
+        {/* copyright: mobile flex-col, desktop flex-row */}
+        <div className="flex flex-col sm:flex-row justify-between items-center gap-3 text-xs text-gray-400 text-center sm:text-left">
           <p>© 2026 Dev Stack. All rights reserved.</p>
           <div className="flex items-center gap-6">
             <a href="#" className="hover:text-gray-600 transition">Privacy</a>
