@@ -19,7 +19,7 @@ const Technologies = () => {
 
   // load data from json
   useEffect(() => {
-    fetch("/technologies.json")
+    fetch("./technologies.json")
       .then((res) => res.json())
       .then((data) => {
         setTechList(data);
