@@ -57,6 +57,14 @@ const Technologies = () => {
     toast.info("All items removed");
   };
 
+  const getIconUrl = (path: string) => {
+    if (!path) return "";
+    if (path.startsWith("http")) return path;
+    if (path.startsWith("./")) return path;
+    if (path.startsWith("/")) return `.${path}`;
+    return `./${path}`;
+  };
+
   const getBadgeStyle = (badge: string) => {
     switch (badge) {
       case "Popular":
@@ -120,12 +128,9 @@ const Technologies = () => {
                     <div className="flex items-center justify-between">
                       <div className="w-10 h-10 flex items-center justify-center p-1 bg-slate-50 rounded-lg">
                         <img
-                          src={tech.icon}
+                          src={getIconUrl(tech.icon)}
                           alt={tech.name}
                           className="w-8 h-8 object-contain"
-                          onError={(e) => {
-                            (e.target as HTMLElement).style.display = "none";
-                          }}
                         />
                       </div>
                       <span className={`text-xs font-semibold px-3 py-1 rounded-full ${getBadgeStyle(tech.badge)}`}>
@@ -196,7 +201,7 @@ const Technologies = () => {
                   >
                     <div className="flex items-center gap-3">
                       <div className="w-7 h-7 flex items-center justify-center p-0.5 bg-slate-50 rounded">
-                        <img src={item.icon} alt={item.name} className="w-6 h-6 object-contain" />
+                        <img src={getIconUrl(item.icon)} alt={item.name} className="w-6 h-6 object-contain" />
                       </div>
                       <div>
                         <h4 className="text-sm font-bold text-slate-800">{item.name}</h4>
