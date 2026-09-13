@@ -1,6 +1,6 @@
 @import "tailwindcss";
 
-/* 🎨 Shared Brand Gradient Theme (Can be changed in one place) */
+/* brand gradient */
 :root {
   --brand-gradient: linear-gradient(135deg, #f97316 0%, #ec4899 50%, #8b5cf6 100%);
   --brand-gradient-hover: linear-gradient(135deg, #ea580c 0%, #db2777 50%, #7c3aed 100%);
