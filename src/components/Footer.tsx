@@ -23,8 +23,8 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* links columns: grid with 3 columns and clean spacing */}
-          <div className="w-full lg:w-1/2 grid grid-cols-3 gap-6 sm:gap-8">
+          {/* links columns: 1 column on mobile, 3 columns on tablet/desktop */}
+          <div className="w-full lg:w-1/2 grid grid-cols-1 sm:grid-cols-3 gap-8">
             
             {/* product */}
             <div>
