@@ -2,45 +2,48 @@ import bannerImg from "../assets/banner-stack.png";
 
 const Hero = () => {
   return (
-    <section className="max-w-7xl mx-auto px-16 py-20">
-      <div className="flex items-center justify-between gap-16">
+    <section className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-16 pt-10 pb-16 lg:pt-16 lg:pb-24">
+      <div className="flex flex-col-reverse lg:flex-row items-center justify-between gap-12 lg:gap-16">
         
-        {/*  (Left Content) */}
-        <div className="w-1/2">
+        {/* বাম পাশের লেখা এবং বাটন */}
+        <div className="w-full lg:w-1/2 text-center lg:text-left">
           
-          {/* (Title) */}
-          <h1 className="text-5xl font-extrabold text-[#0f172a] leading-tight tracking-tight">
+          {/* হেডিং (Two-tone: Plain text + Gradient text) */}
+          <h1 className="text-4xl sm:text-5xl lg:text-[56px] font-extrabold text-[#0f172a] leading-tight tracking-tight">
             Build Your Ideal <br />
-            <span className="bg-gradient-to-r from-orange-500 via-pink-500 to-purple-600 bg-clip-text text-transparent">
+            <span className="text-brand-gradient">
               Development Stack
             </span>
           </h1>
 
-          {/* (Description) */}
-          <p className="mt-6 text-gray-500 text-lg leading-relaxed max-w-lg">
+          {/* প্যারাগ্রাফ */}
+          <p className="mt-6 text-gray-500 text-base sm:text-lg leading-relaxed max-w-lg mx-auto lg:mx-0">
             Explore frontend, backend, database, and tooling options,
             compare them side by side, and put together the stack that fits your
             next project.
           </p>
 
-          {/* (Action Buttons) */}
-          <div className="mt-8 flex items-center gap-4 text-sm font-medium">
-            <button className="bg-gradient-to-r from-orange-500 to-pink-500 text-white px-6 py-3 rounded-lg hover:opacity-90 transition cursor-pointer shadow-sm">
+          {/* বাটনসমূহ */}
+          <div className="mt-8 flex flex-wrap items-center justify-center lg:justify-start gap-4 text-sm font-medium">
+            <a
+              href="#technologies"
+              className="bg-brand-gradient text-white px-6 py-3 rounded-lg hover:opacity-95 transition cursor-pointer shadow-sm active:scale-95"
+            >
               Explore Technologies
-            </button>
-            <button className="border border-gray-200 bg-white text-gray-700 px-6 py-3 rounded-lg hover:bg-gray-50 transition cursor-pointer">
+            </a>
+            <button className="border border-gray-200 bg-white text-gray-700 px-6 py-3 rounded-lg hover:bg-gray-50 transition cursor-pointer active:scale-95">
               Learn More
             </button>
           </div>
 
         </div>
 
-        {/* (Right 3D Image) */}
-        <div className="w-1/2 flex justify-end">
+        {/* ডান পাশের ৩ডি ব্যানার ইমেজ */}
+        <div className="w-full lg:w-1/2 flex justify-center lg:justify-end">
           <img
             src={bannerImg}
             alt="Development Stack"
-            className="w-[480px] object-contain"
+            className="w-full max-w-sm sm:max-w-md lg:max-w-[480px] object-contain drop-shadow-md"
           />
         </div>
 
